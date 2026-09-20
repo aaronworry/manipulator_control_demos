@@ -1,0 +1,437 @@
+<?xml version="1.0" ?>
+<mujoco>
+    <compiler angle="radian"/>
+    <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"/>
+    <visual>
+        <headlight ambient="0.8 0.8 0.8" diffuse="0.2 0.2 0.2" specular="0 0 0" active="1"/>
+        <map force="0.1" zfar="40"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global offwidth="2560" offheight="1440" elevation="-20" azimuth="135"/>
+    </visual>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+        <texture type="2d" name="groundplane" builtin="flat" mark="edge" rgb1="0.1 0.1 0.1" rgb2="0.3 0.5 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+        <model name="room" file="room/room_base.xml"/>
+        <model name="simple_shelf" file="room/room_base.xml"/>
+        <model name="RobotModel" file="PIPER/PIPER.xml" />
+        <mesh file="room/room_assets/tabletop.stl" name="tabletop" scale="0.001 0.001 0.001"/>
+        <mesh file="room/room_assets/tableleg.stl" name="tableleg" scale="0.001 0.001 0.003"/>
+        <mesh name="apple" file="objects/apple.obj"/>
+        <texture name="apple_texture" type="2d" file="objects/apple.png"/>
+        <material name="apple_material" texture="apple_texture" texuniform="true"/>
+        <mesh name="cola" file="objects/cola.obj"/>
+        <texture name="cola_texture" type="2d" file="objects/cola.png"/>
+        <material name="cola_material" texture="cola_texture" texuniform="true"/>
+        <mesh name="juice" file="objects/juice.obj"/>
+        <texture name="juice_texture" type="2d" file="objects/juice.png"/>
+        <material name="juice_material" texture="juice_texture" texuniform="true"/>
+        <mesh name="juice_pack_3d_scan" file="objects/juice_pack_3d_scan.obj"/>
+        <texture name="juice_pack_3d_scan_texture" type="2d" file="objects/juice_pack_3d_scan.png"/>
+        <material name="juice_pack_3d_scan_material" texture="juice_pack_3d_scan_texture" texuniform="true"/>
+        <mesh name="dark_chocolate_cereal_box" file="objects/dark_chocolate_cereal_box.obj"/>
+        <texture name="dark_chocolate_cereal_box_texture" type="2d" file="objects/dark_chocolate_cereal_box.png"/>
+        <material name="dark_chocolate_cereal_box_material" texture="dark_chocolate_cereal_box_texture" texuniform="true"/>
+        <mesh name="chocopie" file="objects/chocopie.obj"/>
+        <texture name="chocopie_texture" type="2d" file="objects/chocopie.png"/>
+        <material name="chocopie_material" texture="chocopie_texture" texuniform="true"/>
+        <mesh name="ssips_juice_box" file="objects/ssips_juice_box.obj"/>
+        <texture name="ssips_juice_box_texture" type="2d" file="objects/ssips_juice_box.png"/>
+        <material name="ssips_juice_box_material" texture="ssips_juice_box_texture" texuniform="true"/>
+        <mesh name="arabic_sweet_box" file="objects/arabic_sweet_box.obj"/>
+        <texture name="arabic_sweet_box_texture" type="2d" file="objects/arabic_sweet_box.png"/>
+        <material name="arabic_sweet_box_material" texture="arabic_sweet_box_texture" texuniform="true"/>
+        <mesh name="soda_can" file="objects/soda_can.obj"/>
+        <texture name="soda_can_texture" type="2d" file="objects/soda_can.png"/>
+        <material name="soda_can_material" texture="soda_can_texture" texuniform="true"/>
+        <mesh name="biscuit" file="objects/biscuit.obj"/>
+        <texture name="biscuit_texture" type="2d" file="objects/biscuit.png"/>
+        <material name="biscuit_material" texture="biscuit_texture" texuniform="true"/>
+        <mesh name="tea_biscuit" file="objects/tea_biscuit.obj"/>
+        <texture name="tea_biscuit_texture" type="2d" file="objects/tea_biscuit.png"/>
+        <material name="tea_biscuit_material" texture="tea_biscuit_texture" texuniform="true"/>
+        <mesh name="sachet_individuel_oreo__oreo_individual_sachet" file="objects/sachet_individuel_oreo__oreo_individual_sachet.obj"/>
+        <texture name="sachet_individuel_oreo__oreo_individual_sachet_texture" type="2d" file="objects/sachet_individuel_oreo__oreo_individual_sachet.png"/>
+        <material name="sachet_individuel_oreo__oreo_individual_sachet_material" texture="sachet_individuel_oreo__oreo_individual_sachet_texture" texuniform="true"/>
+        <mesh name="bag_of_dorritos" file="objects/bag_of_dorritos.obj"/>
+        <texture name="bag_of_dorritos_texture" type="2d" file="objects/bag_of_dorritos.png"/>
+        <material name="bag_of_dorritos_material" texture="bag_of_dorritos_texture" texuniform="true"/>
+        <mesh name="lays_classic" file="objects/lays_classic.obj"/>
+        <texture name="lays_classic_texture" type="2d" file="objects/lays_classic.png"/>
+        <material name="lays_classic_material" texture="lays_classic_texture" texuniform="true"/>
+    </asset>
+    <worldbody>
+        <light castshadow="false" directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="-1 -1 1" dir="1 1 -1"/>
+        <light directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="1 -1 1" dir="-1 1 -1"/>
+        <light castshadow="false" directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="0 1 1" dir="0 -1 -1"/>
+        <geom name="floor" size="50 50 0.05" pos="0 0 0" type="plane" material="groundplane"/>
+        <!-- 后墙 -->
+        <geom name="back_wall" type="box" pos="0 1.01 1" size="5 0.1 1.5" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+        <!-- 右墙 -->
+        <geom name="right_wall" type="box" pos="0.1 0 1" size="0.1 5 1.5" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+        <geom name="wall" type="box" pos="-1.83 1.305 1" size="1 1 1.5" rgba="1 1 1 1" contype="1" conaffinity="1"/>
+        <!-- 桌子
+        <body name="room" pos="0 0 0">
+            <attach model="room" body="room_baselink" prefix="room_0/"/>
+        </body>  -->
+        <!-- 架子 -->
+        <body name="simple_shelf" pos="-0.3 0 -0.5" euler="0 0 0">
+            <attach model="simple_shelf" body="simple_shelf" prefix="item_1/"/>
+        </body>
+
+        <body name="table" pos="-0.4 -0.5 0.63" euler="0 0 1.5708">
+            <geom group="1" mesh="tabletop" pos="0 0 0" type="mesh" conaffinity="1" contype="1" name="table" rgba="0.2 0.2 0.2 1" />
+            <body name="tableleg_0" pos="0.3 -0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_0" pos="0 0 0" />
+            </body>
+            <body name="tableleg_1" pos="1.1 -0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_1" pos="0 0 0" />
+            </body>
+            <body name="tableleg_2" pos="0.3 0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_2" pos="0 0 0" />
+            </body>
+            <body name="tableleg_3" pos="1.1 0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_3" pos="0 0 0" />
+            </body>
+            <body name="item_1" pos="0.469 0.025 0.0">
+                <attach model="RobotModel" body="piper" prefix="item_1/"/>
+            </body>
+        </body>
+
+        <camera name="left_pillar" pos="0.5 0.2 0.6" fovy="78" mode="targetbody" target="table"/>
+        <camera name="top" pos="0 0.6 0.8" fovy="78" mode="targetbody" target="table"/>
+        <camera name="angle" pos="0 0 0.6" fovy="78" mode="targetbody" target="table"/>
+
+        <body name="table_1" pos="-1.2 -0.5 0.5" euler="0 0 1.5708">
+            <geom group="1" mesh="tabletop" pos="0 0 0" type="mesh" conaffinity="1" contype="1" name="table_1" rgba="0.2 0.2 0.2 1" />
+            <body name="tableleg_01" pos="0.3 -0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_01" pos="0 0 0" />
+            </body>
+            <body name="tableleg_11" pos="1.1 -0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_11" pos="0 0 0" />
+            </body>
+            <body name="tableleg_21" pos="0.3 0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_21" pos="0 0 0" />
+            </body>
+            <body name="tableleg_31" pos="1.1 0.3 -0.48">
+                <geom group="1" type="mesh" mesh="tableleg" name="tableleg_31" pos="0 0 0" />
+            </body>
+        </body>
+        <body name="storage_basket_red" pos="-0.98 -0.1 0.5" euler="1.5708 0 0">
+            <joint name="basket_joint_red" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.5" diaginertia="0.01 0.01 0.01"/>
+            <!--  视觉颜色可调整  -->
+            <geom name="basket_front_red" type="box" size="0.18 0.15 0.005" pos="0 0.15 -0.2" rgba="1 0 0 0.5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="3 0.005 0.0001"/>
+            <geom name="basket_back_red" type="box" size="0.18 0.15 0.005" pos="0 0.15 0.2" rgba="1 0 0 0.5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="3 0.005 0.0001"/>
+            <geom name="basket_bottom_red" type="box" size="0.18 0.005 0.2" pos="0 0.005 0" rgba="1 0 0 0.5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="3 0.005 0.0001"/>
+            <geom name="basket_left_red" type="box" size="0.005 0.15 0.2" pos="-0.18 0.15 0" rgba="1 0 0 0.5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="3 0.005 0.0001"/>
+            <geom name="basket_right_red" type="box" size="0.005 0.15 0.2" pos="0.18 0.15 0" rgba="1 0 0 0.5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="3 0.005 0.0001"/>
+        </body>
+
+        <!-- 第零层
+        <body name="biscuit" pos="-0.3 0.5 0.18" euler="1.5708 -3.14 0">
+            <joint name="biscuit_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="biscuit" name="biscuit" material="biscuit_material"/>
+        </body>
+        <body name="biscuit1" pos="-0.3 0.65 0.18" euler="1.5708 -3.14 0">
+            <joint name="biscuit1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="biscuit" name="biscuit1" material="biscuit_material"/>
+        </body>
+        <body name="biscuit2" pos="-0.3 0.8 0.18" euler="1.5708 -3.14 0">
+            <joint name="biscuit2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="biscuit" name="biscuit2" material="biscuit_material"/>
+        </body>
+
+
+        <body name="tea_biscuit" pos="-0.5 0.5 0.18" euler="1.5708 -3.14 0">
+            <joint name="tea_biscuit_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="tea_biscuit" name="tea_biscuit" material="tea_biscuit_material"/>
+        </body>
+        <body name="tea_biscuit1" pos="-0.5 0.65 0.18" euler="1.5708 -3.14 0">
+            <joint name="tea_biscuit1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="tea_biscuit" name="tea_biscuit1" material="tea_biscuit_material"/>
+        </body>
+        <body name="tea_biscuit2" pos="-0.5 0.8 0.18" euler="1.5708 -3.14 0">
+            <joint name="tea_biscuit2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="tea_biscuit" name="tea_biscuit2" material="tea_biscuit_material"/>
+        </body>
+
+
+        <body name="sachet_individuel_oreo__oreo_individual_sachet" pos="-0.7 0.5 0.18" euler="1.5708 -3.14 0">
+            <joint name="sachet_individuel_oreo__oreo_individual_sachet_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="sachet_individuel_oreo__oreo_individual_sachet" name="sachet_individuel_oreo__oreo_individual_sachet" material="sachet_individuel_oreo__oreo_individual_sachet_material"/>
+        </body>
+        <body name="sachet_individuel_oreo__oreo_individual_sachet1" pos="-0.7 0.65 0.18" euler="1.5708 -3.14 0">
+            <joint name="sachet_individuel_oreo__oreo_individual_sachet1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="sachet_individuel_oreo__oreo_individual_sachet" name="sachet_individuel_oreo__oreo_individual_sachet1" material="sachet_individuel_oreo__oreo_individual_sachet_material"/>
+        </body>
+        <body name="sachet_individuel_oreo__oreo_individual_sachet2" pos="-0.7 0.8 0.18" euler="1.5708 -3.14 0">
+            <joint name="sachet_individuel_oreo__oreo_individual_sachet2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="sachet_individuel_oreo__oreo_individual_sachet" name="sachet_individuel_oreo__oreo_individual_sachet2" material="sachet_individuel_oreo__oreo_individual_sachet_material"/>
+        </body>
+        -->
+
+        <!-- 第一层 -->
+        <!-- 牛奶
+        <body name="juice_pack_3d_scan" pos="-0.2 0.4 0.58" euler="1.5708 0 0">
+            <joint name="juice_pack_3d_scan_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice_pack_3d_scan" name="juice_pack_3d_scan" material="juice_pack_3d_scan_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.01 0" euler="1.5708 0 0" size="0.01 0.01 0.03" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice_pack_3d_scan1" pos="-0.2 0.5 0.58" euler="1.5708 0 0">
+            <joint name="juice_pack_3d_scan1_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice_pack_3d_scan" name="juice_pack_3d_scan1" material="juice_pack_3d_scan_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.01 0" euler="1.5708 0 0" size="0.01 0.01 0.03" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice_pack_3d_scan2" pos="-0.2 0.6 0.58" euler="1.5708 0 0">
+            <joint name="juice_pack_3d_scan2_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice_pack_3d_scan" name="juice_pack_3d_scan2" material="juice_pack_3d_scan_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.01 0" euler="1.5708 0 0" size="0.01 0.01 0.03" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice_pack_3d_scan3" pos="-0.2 0.7 0.58" euler="1.5708 0 0">
+            <joint name="juice_pack_3d_scan3_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice_pack_3d_scan" name="juice_pack_3d_scan3" material="juice_pack_3d_scan_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.01 0" euler="1.5708 0 0" size="0.01 0.01 0.03" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        -->
+
+        <!-- 酸奶 -->
+        <body name="ssips_juice_box" pos="-0.2 0.4 0.58" euler="1.5708 -3.14 0">
+            <joint name="ssips_juice_box_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="ssips_juice_box" name="ssips_juice_box" material="ssips_juice_box_material"/>
+        </body>
+        <body name="ssips_juice_box1" pos="-0.2 0.5 0.58" euler="1.5708 -3.14 0">
+            <joint name="ssips_juice_box1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="ssips_juice_box" name="ssips_juice_box1" material="ssips_juice_box_material"/>
+        </body>
+        <body name="ssips_juice_box2" pos="-0.2 0.6 0.58" euler="1.5708 -3.14 0">
+            <joint name="ssips_juice_box2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="ssips_juice_box" name="ssips_juice_box2" material="ssips_juice_box_material"/>
+        </body>
+        <body name="ssips_juice_box3" pos="-0.2 0.7 0.58" euler="1.5708 -3.14 0">
+            <joint name="ssips_juice_box3_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="ssips_juice_box" name="ssips_juice_box3" material="ssips_juice_box_material"/>
+        </body>
+
+
+        <!-- 果汁 -->
+        <body name="juice" pos="-0.35 0.4 0.58" euler="1.5708 0 0">
+            <joint name="juice_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice" name="juice" material="juice_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.04 0" euler="1.5708 0 0" size="0.016 0.016 0.04" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice1" pos="-0.35 0.5 0.58" euler="1.5708 0 0">
+            <joint name="juice1_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice" name="juice1" material="juice_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.04 0" euler="1.5708 0 0" size="0.016 0.016 0.04" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice2" pos="-0.35 0.6 0.58" euler="1.5708 0 0">
+            <joint name="juice2_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice" name="juice2" material="juice_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.04 0" euler="1.5708 0 0" size="0.016 0.016 0.04" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+        <body name="juice3" pos="-0.35 0.7 0.58" euler="1.5708 0 0">
+            <joint name="juice3_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="juice" name="juice3" material="juice_material" contype="0" conaffinity="0"/>
+            <geom pos="0 0.04 0" euler="1.5708 0 0" size="0.016 0.016 0.04" type="box" condim="3" group="1" friction="1" contype="1" conaffinity="1" rgba = "0 0 0 0" mass="0" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+        </body>
+
+        <!-- 可乐 -->
+        <body name="cola" pos="-0.5 0.4 0.58" euler="1.5708 0 0">
+            <joint name="cola_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="cola" name="cola" material="cola_material"/>
+        </body>
+        <body name="cola1" pos="-0.5 0.5 0.58" euler="1.5708 0 0">
+            <joint name="cola1_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="cola" name="cola1" material="cola_material"/>
+        </body>
+        <body name="cola2" pos="-0.5 0.6 0.58" euler="1.5708 0 0">
+            <joint name="cola2_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="cola" name="cola2" material="cola_material"/>
+        </body>
+        <body name="cola3" pos="-0.5 0.7 0.58" euler="1.5708 0 0">
+            <joint name="cola3_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="cola" name="cola3" material="cola_material"/>
+        </body>
+
+
+        <!-- 苏打水 -->
+        <body name="soda_can" pos="-0.65 0.4 0.58" euler="1.5708 -3.14 0">
+            <joint name="soda_can_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="soda_can" name="soda_can" material="soda_can_material"/>
+        </body>
+        <body name="soda_can1" pos="-0.65 0.5 0.58" euler="1.5708 -3.14 0">
+            <joint name="soda_can1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="soda_can" name="soda_can1" material="soda_can_material"/>
+        </body>
+        <body name="soda_can2" pos="-0.65 0.6 0.58" euler="1.5708 -3.14 0">
+            <joint name="soda_can2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="soda_can" name="soda_can2" material="soda_can_material"/>
+        </body>
+        <body name="soda_can3" pos="-0.65 0.7 0.58" euler="1.5708 -3.14 0">
+            <joint name="soda_can3_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="soda_can" name="soda_can3" material="soda_can_material"/>
+        </body>
+
+
+        <!-- 第二层 -->
+        <!-- 苹果 -->
+        <body name="apple" pos="-0.2 0.4 0.98" euler="1.5708 0 0">
+            <joint name="apple_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="apple" name="apple" material="apple_material"/>
+        </body>
+        <body name="apple1" pos="-0.2 0.5 0.98" euler="1.5708 0 0">
+            <joint name="apple1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="apple" name="apple1" material="apple_material"/>
+        </body>
+        <body name="apple2" pos="-0.2 0.6 0.98" euler="1.5708 0 0">
+            <joint name="apple2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="apple" name="apple2" material="apple_material"/>
+        </body>
+        <body name="apple3" pos="-0.2 0.7 0.98" euler="1.5708 0 0">
+            <joint name="apple3_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="apple" name="apple3" material="apple_material"/>
+        </body>
+
+
+
+        <!-- 巧克力 -->
+        <body name="dark_chocolate_cereal_box" pos="-0.35 0.4 0.98" euler="1.5708 -3.14 0">
+            <joint name="dark_chocolate_cereal_box_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="dark_chocolate_cereal_box" name="dark_chocolate_cereal_box" material="dark_chocolate_cereal_box_material"/>
+        </body>
+        <body name="dark_chocolate_cereal_box1" pos="-0.35 0.5 0.98" euler="1.5708 -3.14 0">
+            <joint name="dark_chocolate_cereal_box1_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="dark_chocolate_cereal_box" name="dark_chocolate_cereal_box1" material="dark_chocolate_cereal_box_material"/>
+        </body>
+        <body name="dark_chocolate_cereal_box2" pos="-0.35 0.6 0.98" euler="1.5708 -3.14 0">
+            <joint name="dark_chocolate_cereal_box2_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="dark_chocolate_cereal_box" name="dark_chocolate_cereal_box2" material="dark_chocolate_cereal_box_material"/>
+        </body>
+        <body name="dark_chocolate_cereal_box3" pos="-0.35 0.7 0.98" euler="1.5708 -3.14 0">
+            <joint name="dark_chocolate_cereal_box3_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+            <geom type="mesh" mesh="dark_chocolate_cereal_box" name="dark_chocolate_cereal_box3" material="dark_chocolate_cereal_box_material"/>
+        </body>
+
+
+        <!-- 巧克力派 -->
+        <body name="chocopie" pos="-0.5 0.41 0.98" euler="1.5708 -1.5708 0">
+            <joint name="chocopie_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="chocopie" name="chocopie" material="chocopie_material"/>
+        </body>
+        <body name="chocopie1" pos="-0.5 0.51 0.98" euler="1.5708 -1.5708 0">
+            <joint name="chocopie1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="chocopie" name="chocopie1" material="chocopie_material"/>
+        </body>
+        <body name="chocopie2" pos="-0.5 0.61 0.98" euler="1.5708 -1.5708 0">
+            <joint name="chocopie2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="chocopie" name="chocopie2" material="chocopie_material"/>
+        </body>
+        <body name="chocopie3" pos="-0.5 0.71 0.98" euler="1.5708 -1.5708 0">
+            <joint name="chocopie3_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="chocopie" name="chocopie3" material="chocopie_material"/>
+        </body>
+
+
+        <!-- 糖果 -->
+        <body name="arabic_sweet_box" pos="-0.65 0.4 0.98" euler="1.5708 -1.5708 0">
+            <joint name="arabic_sweet_box_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="arabic_sweet_box" name="arabic_sweet_box" material="arabic_sweet_box_material"/>
+        </body>
+        <body name="arabic_sweet_box1" pos="-0.65 0.5 0.98" euler="1.5708 -1.5708 0">
+            <joint name="arabic_sweet_box1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="arabic_sweet_box" name="arabic_sweet_box1" material="arabic_sweet_box_material"/>
+        </body>
+        <body name="arabic_sweet_box2" pos="-0.65 0.6 0.98" euler="1.5708 -1.5708 0">
+            <joint name="arabic_sweet_box2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="arabic_sweet_box" name="arabic_sweet_box2" material="arabic_sweet_box_material"/>
+        </body>
+        <body name="arabic_sweet_box3" pos="-0.65 0.7 0.98" euler="1.5708 -1.5708 0">
+            <joint name="arabic_sweet_box3_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="arabic_sweet_box" name="arabic_sweet_box3" material="arabic_sweet_box_material"/>
+        </body>
+
+
+        <!-- 第四层 -->
+
+        <body name="bag_of_dorritos" pos="-0.3 0.43 1.38" euler="1.5708 -3.14 0">
+            <joint name="bag_of_dorritos_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="bag_of_dorritos" name="bag_of_dorritos" material="bag_of_dorritos_material"/>
+        </body>
+        <body name="bag_of_dorritos1" pos="-0.3 0.55 1.38" euler="1.5708 -3.14 0">
+            <joint name="bag_of_dorritos1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="bag_of_dorritos" name="bag_of_dorritos1" material="bag_of_dorritos_material"/>
+        </body>
+        <body name="bag_of_dorritos2" pos="-0.3 0.67 1.38" euler="1.5708 -3.14 0">
+            <joint name="bag_of_dorritos2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="bag_of_dorritos" name="bag_of_dorritos2" material="bag_of_dorritos_material"/>
+        </body>
+
+
+
+        <body name="lays_classic" pos="-0.6 0.43 1.38" euler="1.5708 -3.14 0">
+            <joint name="lays_classic_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="lays_classic" name="lays_classic" material="lays_classic_material"/>
+        </body>
+        <body name="lays_classic1" pos="-0.6 0.55 1.38" euler="1.5708 -3.14 0">
+            <joint name="lays_classic1_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="lays_classic" name="lays_classic1" material="lays_classic_material"/>
+        </body>
+        <body name="lays_classic2" pos="-0.6 0.67 1.38" euler="1.5708 -3.14 0">
+            <joint name="lays_classic2_joint" type="free" frictionloss="0.01"/>
+            <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001"/>
+            <geom type="mesh" mesh="lays_classic" name="lays_classic2" material="lays_classic_material"/>
+        </body>
+
+    </worldbody>
+</mujoco>

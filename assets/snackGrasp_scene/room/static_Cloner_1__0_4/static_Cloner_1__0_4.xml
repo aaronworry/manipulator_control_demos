@@ -1,0 +1,146 @@
+<mujoco model="static_Cloner_1__0_4">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="shelf" file="shelf.png"/>
+    <material name="Scene_-_Root.004" texture="shelf" specular="0.5" shininess="0.25"/>
+    <mesh file="static_Cloner_1__0_4.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_0.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_1.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_2.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_3.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_4.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_5.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_6.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_7.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_8.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_9.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_10.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_11.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_12.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_13.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_14.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_15.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_16.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_17.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_18.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_19.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_20.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_21.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_22.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_23.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_24.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_25.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_26.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_27.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_28.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_29.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_30.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_31.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_32.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_33.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_34.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_35.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_36.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_37.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_38.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_39.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_40.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_41.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_42.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_43.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_44.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_45.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_46.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_47.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_48.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_49.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_50.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_51.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_52.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_53.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_54.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_55.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_56.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_57.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_58.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_59.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_60.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_61.obj"/>
+    <mesh file="static_Cloner_1__0_4_collision_62.obj"/>
+  </asset>
+  <worldbody>
+    <body name="static_Cloner_1__0_4">
+      <geom material="Scene_-_Root.004" mesh="static_Cloner_1__0_4" class="visual"/>
+      <geom mesh="static_Cloner_1__0_4_collision_0" rgba="0.8364085926411171 0.499139484498787 0.03745907001804716 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_1" rgba="0.9818685765499267 0.5103084116384947 0.9018876383630129 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_2" rgba="0.574844816397853 0.6412052051629603 0.09842378802755414 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_3" rgba="0.8954739468323306 0.09902442999059513 0.5807858467063398 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_4" rgba="0.6255927019446818 0.16614145500682265 0.8684030500056589 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_5" rgba="0.84399377511625 0.10148107608483492 0.5703649770176142 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_6" rgba="0.5958049595030163 0.7289907031569058 0.8769211238696112 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_7" rgba="0.47653982985983634 0.758285663203714 0.3615553125892944 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_8" rgba="0.0895620001970886 0.8935350076956325 0.549421476468102 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_9" rgba="0.4402420458268901 0.8168216774754626 0.8690370538015431 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_10" rgba="0.021897415933504916 0.08496143737137929 0.6809760485736547 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_11" rgba="0.3201063199333767 0.8307727460747486 0.24512515052282224 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_12" rgba="0.08276440603675361 0.4033181083972289 0.43220822423851746 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_13" rgba="0.5899173214175647 0.6681893575121595 0.5173657270341485 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_14" rgba="0.20865867842324715 0.028032571132731388 0.2664888607257213 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_15" rgba="0.9870508450884539 0.37189093719320954 0.5556582925996971 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_16" rgba="0.6560576369524735 0.12416433010970573 0.9907832735541913 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_17" rgba="0.5519626515125176 0.32687944328835605 0.6970184463207998 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_18" rgba="0.4689513028950524 0.4674214477920885 0.49473946604011343 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_19" rgba="0.422169603186215 0.7369081416961286 0.16942947623530946 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_20" rgba="0.34484290749834967 0.44246762800609274 0.08238557387202505 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_21" rgba="0.12816088875475196 0.5379947481904683 0.9849295924778855 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_22" rgba="0.1360739527621574 0.9675838491752919 0.8253105698383267 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_23" rgba="0.07832228613959635 0.4982042592991307 0.7175612545553044 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_24" rgba="0.5440896307064401 0.7131794187543407 0.7153052352555246 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_25" rgba="0.7312294900359141 0.8498664744443709 0.6326261506156784 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_26" rgba="0.44822800315367906 0.6989792265226469 0.6029793895518303 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_27" rgba="0.625389495620177 0.3973746223742063 0.20837280808977054 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_28" rgba="0.22256496717528051 0.8798753332269521 0.43473251815087155 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_29" rgba="0.2518742725166836 0.15079071956208945 0.5160877546493936 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_30" rgba="0.5170005999582103 0.7981628309708599 0.5576204194410543 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_31" rgba="0.2090414528416168 0.1633244727472929 0.3194357756256858 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_32" rgba="0.7642553593948704 0.7280391055946658 0.5811201215984512 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_33" rgba="0.4434677557000052 0.7562603133785921 0.46325673230996045 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_34" rgba="0.6823888081029567 0.5977754807422486 0.06436100391767352 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_35" rgba="0.9064799432724577 0.6746476774767726 0.44646864622089977 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_36" rgba="0.9237475652843318 0.6321579733275335 0.8310144021610862 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_37" rgba="0.297857722890438 0.32159219621376667 0.8467190210414026 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_38" rgba="0.2397902360396078 0.349621844151065 0.29332326456950675 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_39" rgba="0.6895139107505417 0.4621593741887542 0.2515735674665792 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_40" rgba="0.8687362903229734 0.32174729676864544 0.4650003188965448 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_41" rgba="0.08958191028281326 0.9870255781655302 0.284053105458283 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_42" rgba="0.008610650623064764 0.36121623803512704 0.5816821830959412 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_43" rgba="0.12465780050805697 0.5703511030377822 0.28427827049788335 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_44" rgba="0.9596069827092476 0.6544701757601811 0.26404812010369005 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_45" rgba="0.4151236868936935 0.9207966595439495 0.3150908358034158 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_46" rgba="0.29932184038793774 0.39053137334754584 0.4105818552230547 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_47" rgba="0.8698135225451352 0.40646386690361624 0.4261072361659002 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_48" rgba="0.052721975165447854 0.6639768476761758 0.5773325127245201 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_49" rgba="0.06731437602983659 0.10832306139600434 0.6036550343446457 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_50" rgba="0.5049880318263872 0.9896886343662414 0.5223630189376992 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_51" rgba="0.6834838881043558 0.9499380442999386 0.03018739098293799 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_52" rgba="0.2363023472386504 0.978770232723154 0.17482472073565813 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_53" rgba="0.5433424734907134 0.7492631372273382 0.9202479103098589 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_54" rgba="0.27590694951127037 0.983922829904471 0.48112137765111107 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_55" rgba="0.1814897872211506 0.1281993420421439 0.5630036558481946 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_56" rgba="0.085640910841279 0.31515421619977435 0.9760577432928786 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_57" rgba="0.8350761630381007 0.4832895373831061 0.31285083420215 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_58" rgba="0.7598459532273348 0.5123396983173983 0.9529197358850124 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_59" rgba="0.10258608868269847 0.5348417969081437 0.8259603106527562 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_60" rgba="0.3166141585143015 0.0977893491584868 0.6337799249649694 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_61" rgba="0.5217886421910861 0.9535498061933076 0.7361476222886528 1" class="collision"/>
+      <geom mesh="static_Cloner_1__0_4_collision_62" rgba="0.8817394370248802 0.19658953780561494 0.09661864699097578 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>
